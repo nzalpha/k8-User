@@ -1,33 +1,33 @@
-# Manifest file for Eureka Deployment
+# Manifest file for user Deployment
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eureka-dev
+  name: user-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eureka-dev
+      app: user-dev
   template:
     metadata:
       labels:
-        app: eureka-dev
+        app: user-dev
     spec:
       containers:
-      - name: eureka-dev
+      - name: user-dev
         image: DIT
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: eureka-dev-svc
+  name: user-dev-svc
 spec:
   selector:
-    app: eureka-dev
+    app: user-dev
   type: NodePort
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 8761
+    targetPort: 8232
